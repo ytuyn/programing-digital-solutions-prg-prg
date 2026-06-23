@@ -1,0 +1,403 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151f32;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --btn-color: #0284c7;
+            --btn-hover: #0369a1;
+            --success-color: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- شريط التنقل (Navbar) --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(21, 31, 50, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .brand-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .brand-name span {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-right: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- القسم الترحيبي (Hero Section) --- */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- قسم الخدمات والمشاريع المدمج --- */
+        #projects {
+            padding: 40px 0;
+        }
+
+        #projects h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        #projects h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.2);
+        }
+
+        .project-img {
+    position: relative;
+    width: 100%;
+    height: 220px; 
+    background: #0b0f19;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+   .project-img .hover-img {
+    opacity: 0;
+    z-index: 1;
+    transform: scale(1.05); /* تأثير زووم خفيف جداً لصورة الكود يعطي لمسة احترافية */
+}
+
+       .project-img .base-img {
+    opacity: 1;
+    z-index: 2;
+}
+.project-card:hover .base-img {
+    opacity: 0;
+}
+
+        .project-card:hover .hover-img {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .tech-badges {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            background: rgba(11, 15, 25, 0.6);
+            padding: 5px 8px;
+            border-radius: 20px;
+        }
+
+        .tech-badges img {
+            width: 20px;
+            height: 20px;
+            padding: 0;
+        }
+
+        .project-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-info h3 i {
+            color: var(--accent-color);
+        }
+
+        .project-description {
+            flex-grow: 1;
+        }
+
+        .project-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .proj-link.demo {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+        }
+
+        .proj-link.demo:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: var(--accent-color);
+        }
+
+        .order-service-btn {
+            background: var(--btn-color);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+
+        .order-service-btn:hover {
+            background: var(--btn-hover);
+        }
+
+        /* --- قسم نموذج الطلب الخطي --- */
+        #contact-section {
+            padding: 60px 0 80px 0;
+        }
+
+        .contact-box {
+            background: var(--card-bg);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .contact-box h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            background: #0b0f19;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--btn-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* رسالة النجاح المنبثقة المخفية افتراضياً */
+        .success-message {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--success-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message i {
+            color: var(--success-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .success-message h4 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .success-message p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .contact-box { padding: 25px; }
+            .nav-links { gap: 15px; }
+        }
+
