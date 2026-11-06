@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming | البرمجة للخدمات البرمجية</title>
     <!-- مكتبة الأيقونات FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,6 +22,11 @@
                 <li><a href="#projects">خدماتنا</a></li>
                 <li><a href="#contact-section">تواصل معنا</a></li>
             </ul>
+
+            <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
         </div>
     </nav>
 
@@ -32,7 +37,7 @@
             <p>اختر الخدمة البرمجية الرقمية المناسبة لك، املأ بياناتك وسنتواصل معك فوراً لمباشرة التنفيذ.</p>
         </header>
 
-        <!-- قسم الخدمات من كودكِ السابق -->
+        <!-- قسم الخدمات -->
         <section id="projects">
             <h2>خدماتنا البرمجية</h2>
             
@@ -171,13 +176,12 @@
             </div> 
         </section>
 
-        <!-- قسم نموذج الطلب الخطّي الاستاتيكي -->
+        <!-- قسم نموذج الطلب -->
         <section id="contact-section">
             <div class="contact-box">
                 <h2>طلب خدمة سريعة</h2>
                 <p>املأ بياناتك أدناه وسنتواصل معك في أقرب وقت ممكن لمناقشة التفاصيل</p>
 
-                <!-- ⚠️ استبدلي الرابط أدناه برابط Formspree الخاص بكِ لتلقي الرسائل فعلياً -->
                 <form id="ajax-form" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="98cf939a-348d-4f8c-9649-bd6e6d1de605">
                     <div class="form-group">
@@ -206,7 +210,7 @@
                     <button type="submit" id="submit-btn" class="submit-btn">إرسال الطلب</button>
                 </form>
 
-                <!-- صندوق رسالة النجاح المنبثق -->
+                <!-- صندوق رسالة النجاح -->
                 <div id="success-message" class="success-message">
                     <i class="fa-solid fa-circle-check"></i>
                     <h4>تم إرسال طلبكِ بنجاح!</h4>
@@ -217,7 +221,76 @@
 
     </div>
 
+    <!-- قسم الفوتر (Footer) -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- شعار ووصف مختصر -->
+        <div class="footer-brand">
+          <h3 class="footer-logo">Programming</h3>
+          <p>أكواد احترافية لتبني مستقبل مشروعك.</p>
+        </div>
+
+        <!-- روابط مواقع التواصل الاجتماعي والمنصات -->
+        <div class="footer-socials">
+          <h4>تواصل معنا </h4>
+          <div class="social-links">
+            <!-- انستغرام -->
+            <a href="https://www.instagram.com/programing_prg?utm_source=qr" target="_blank" aria-label="Instagram" class="social-icon instagram" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <!-- منصة إكس / تويتر -->
+            <a href="https://www.youtube.com/@programing_prg" target="_blank" aria-label="Youtube" class="social-icon twitter" title="Youtube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <!-- تيك توك -->
+            <a href="https://www.tiktok.com/@programing_prg?_r=1&_t=zs-97l9nw3tqwy" target="_blank" aria-label="TikTok" class="social-icon tiktok" title="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <!-- خمسات -->
+            <a href="https://khamsat.com/designing/landing-page-design/4457383-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D8%A9-%D9%87%D8%A8%D9%88%D8%B7-%D8%AA%D9%81%D8%A7%D8%B9%D9%84%D9%8A%D8%A9-%D9%88%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D8%A9" target="_blank" aria-label="Khamsat" class="social-icon khamsat" title="خمسات">
+              <i class="fas fa-hand-holding-usd"></i>
+            </a>
+            <!-- البريد الإلكتروني -->
+            <a href="mailto:devservices.sa@gmail.com" class="social-icon email" aria-label="Email" title="البريد الإلكتروني">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- حقوق الحفظ -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 جميع الحقوق محفوظة لـ <span>Programming</span></p>
+      </div>
+    </footer>
     <script>
+        const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const hamburgerIcon = hamburger.querySelector('i');
+
+    // فتح وإغلاق القائمة عند الضغط على زر البرجر
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // تغيير أيقونة البرجر إلى X عند الفتح
+        if (navLinks.classList.contains('active')) {
+            hamburgerIcon.classList.remove('fa-bars');
+            hamburgerIcon.classList.add('fa-xmark');
+        } else {
+            hamburgerIcon.classList.remove('fa-xmark');
+            hamburgerIcon.classList.add('fa-bars');
+        }
+    });
+
+    // إغلاق القائمة عند الضغط على أي رابط داخلها
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-xmark');
+            hamburgerIcon.classList.add('fa-bars');
+        });
+    });
+    
         // دالة ربط الكروت بالقائمة تلقائياً
         function setService(serviceValue) {
             document.getElementById('service-select').value = serviceValue;
@@ -253,7 +326,7 @@
                 }
             })
             .catch(error => {
-                alert("عذراً، تأكدي من الاتصال بالإنترنت وحاولي مجدداً.");
+                alert("عذراً، تأكد من الاتصال بالإنترنت وحاول مجدداً.");
                 submitBtn.textContent = "إرسال الطلب";
                 submitBtn.disabled = false;
             });

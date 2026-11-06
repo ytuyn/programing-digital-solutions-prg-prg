@@ -389,15 +389,173 @@
             font-size: 0.95rem;
             margin-bottom: 0;
         }
+/* footer */
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.footer-section {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding: 45px 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: inherit;
+    direction: rtl;
+    margin-top: 60px;
+}
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .contact-box { padding: 25px; }
-            .nav-links { gap: 15px; }
-        }
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.footer-brand h3 {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.footer-socials h4 {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color:var(--text-main);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* تنسيق دبابيس وأيقونات التواصل */
+.social-icon {
+    width: 44px;
+    height: 44px;
+    background-color:var(--card-bg);
+    color: var(--text-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* التأثير التفاعلي عند مرور الماوس (Hover) */
+.social-icon:hover {
+    transform: translateY(-4px);
+    background-color:var(--btn-color);
+    color: #ffffff;
+    box-shadow:0 4px 18px rgba(56, 189, 248, 0.35);
+    border-color:var(--accent-color);
+}
+
+/* حقوق النشر في الأسفل */
+.footer-bottom {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color:var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.footer-bottom span {
+    color:var(--accent-color);
+    font-weight: 600;
+}
+
+/* ==========================================
+   تنسيقات قائمة البرجر والجوال
+   ========================================== */
+
+/* إخفاء زر البرجر في الشاشات الكبيرة */
+.hamburger {
+    display: none;
+    font-size: 1.6rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: var(--accent-color);
+}
+
+/* تنسيقات الشاشات الصغيرة (الجوال) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* إظهار زر البرجر في الجوال */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        
+        /* إخفاء القائمة افتراضياً بالتحريك */
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    /* كلاس تفعيل القائمة عند الضغط على زر البرجر */
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
+
+/* التجاوب الخاص بالفوتر للجوال */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* حركة الظهور التدريجي (Animation) */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* التجاوب الخاص بالشاشة الرئيسية والجوال */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .contact-box { padding: 25px; }
+    .nav-links { gap: 15px; }
+}
 
