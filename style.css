@@ -477,23 +477,22 @@
 }
 
 /* ==========================================
-   تنسيقات قائمة البرجر والجوال
+   تنسيقات قائمة البرجر والجوال (مُعدّلة)
    ========================================== */
 
-/* إخفاء زر البرجر في الشاشات الكبيرة */
 .hamburger {
     display: none;
     font-size: 1.6rem;
     color: var(--text-main);
     cursor: pointer;
     transition: color 0.3s ease;
+    z-index: 1001; /* لضمان ظهور الزر فوق أي شيء */
 }
 
 .hamburger:hover {
     color: var(--accent-color);
 }
 
-/* تنسيقات الشاشات الصغيرة (الجوال) */
 @media (max-width: 768px) {
     .hamburger {
         display: block; /* إظهار زر البرجر في الجوال */
@@ -510,20 +509,20 @@
         gap: 20px;
         padding: 25px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        z-index: 1000; /* لجعل القائمة تظهر فوق كروت الخدمات والهيرو */
         
-        /* إخفاء القائمة افتراضياً بالتحريك */
-        display: flex;
+        /* إخفاء القائمة افتراضياً */
+        display: none;
         opacity: 0;
-        pointer-events: none;
         transform: translateY(-10px);
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     /* كلاس تفعيل القائمة عند الضغط على زر البرجر */
     .nav-links.active {
+        display: flex !important;
         opacity: 1;
-        pointer-events: auto;
         transform: translateY(0);
     }
 }
