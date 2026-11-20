@@ -9,33 +9,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <img src="programming.jpg" alt="Programming Logo">
+            </a>
 
-    <!-- شريط التنقل -->
-<nav class="navbar">
-    <div class="container nav-container">
-        <a href="#" class="brand-logo">
-            <img src="programming.jpg" alt="Programming Logo">
-            <div class="brand-name">Programming <span>| البرمجة</span></div>
-        </a>
-        
-        <!-- أضيفي id="nav-links" هنا تماماً -->
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#projects">خدماتنا</a></li>
-            <li><a href="#contact-section">تواصل معنا</a></li>
-        </ul>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#projects">خدماتنا</a></li>
+                <li><a href="#contact-section">تواصل معنا</a></li>
+            </ul>
 
-        <div class="hamburger" id="hamburger">
-            <i class="fa-solid fa-bars"></i>
+            <a href="#contact-section" class="nav-cta">اطلب خدمتك</a>
+
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <div class="container">
-        
         <header class="hero">
-            <h1>أكواد احترافية لتبني <span>مستقبل مشروعك</span></h1>
-            <p>اختر الخدمة البرمجية الرقمية المناسبة لك، املأ بياناتك وسنتواصل معك فوراً لمباشرة التنفيذ.</p>
+            <div class="hero-glow"></div>
+            <div class="hero-content">
+                <h1>أكواد احترافية لتبني <span>مستقبل مشروعك</span></h1>
+                <p>اختر الخدمة البرمجية الرقمية المناسبة لك، املأ بياناتك وسنتواصل معك فوراً لمباشرة التنفيذ</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">استكشف الخدمات</a>
+                    <a href="#contact-section" class="btn-secondary">تواصل معنا</a>
+                </div>
+            </div>
         </header>
 
         <!-- قسم الخدمات -->
@@ -228,7 +233,7 @@
         <!-- شعار ووصف مختصر -->
         <div class="footer-brand">
           <h3 class="footer-logo">Programming</h3>
-          <p>أكواد احترافية لتبني مستقبل مشروعك.</p>
+          <p>أكواد احترافية لتبني مستقبل مشروعك</p>
         </div>
 
         <!-- روابط مواقع التواصل الاجتماعي والمنصات -->
